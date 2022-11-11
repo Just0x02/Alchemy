@@ -45,7 +45,7 @@ namespace alc::math
 			return (f64) this->get_degrees();
 		}
 
-		Angle& operator =(const f32 &other)
+		inline Angle& operator =(const f32 &other)
 		{
 			this->angle_degrees = other;
 			return *this;
