@@ -13,8 +13,10 @@
 
 namespace alc
 {
+	// just a generally useful class to hold 4 bytes
 	struct Color
     {
+		// 32bit color masks
         enum Masks : u32
         {
             WHITE = 0x00FFFFFF,
@@ -24,6 +26,7 @@ namespace alc
             ALPHA = 0xFF000000,
         };  
 
+		// ansii text modifier flags
         enum Modifiers : u8
         {
             NONE = 0x0,

@@ -101,6 +101,8 @@ namespace alc::math
 
 	inline f32 f32_lerp(f32 a, f32 b, f32 t)
 	{
+		// sanity checks not only for the machine but for you code too
+		// great.
 		assert(t <= 1.0f, "Parameter 't' is greater than 1.0f.");
 		assert(t >= 0.0f, "Parameter 't' is less than 0.0f.");
 		assert(isfinite(t) && isfinite(a) && isfinite(b), "Parameters given are not finite.");

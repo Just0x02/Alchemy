@@ -1,7 +1,7 @@
 #ifndef __WIN_INTEROP_H__
 #define __WIN_INTEROP_H__
 
-#if defined(_WIN32) ||  defined(_WIN64)
+#if defined(_WIN32) || defined(_WIN64)
 	#include <stdio.h>
 	#include <wchar.h>
 	#include <windows.h>
@@ -16,6 +16,8 @@ namespace alc
 {
 	static bool _win_interop_set = false;
 
+	/// @brief Gets current cpu clock cycle
+	/// @return Current cpu clock cycle
 	const inline volatile u64 get_cpu_clock_cycle() noexcept
 	{
 		#ifdef __ALC__INLINE_ASM

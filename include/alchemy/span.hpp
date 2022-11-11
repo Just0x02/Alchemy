@@ -8,7 +8,7 @@
 
 namespace alc
 {
-	// a light-weight container with a ton of helper functions like a c++20 span but even lighter-weight :) (and also uses calloc instead of a malloc)
+	// a light-weight container with a ton of helper functions like a c++20 span but even lighter-weight :) (and also uses calloc instead of a malloc cause screw uninstatiated memory)
 	template <typename T>
 	struct DataSpan
 	{
