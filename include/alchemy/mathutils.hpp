@@ -22,7 +22,7 @@ namespace alc::math
 
 		inline f32 get_radians() const
 		{
-			return alc::math::to_radians(this->angle_degrees);
+			return alc::math::radians * this->angle_degrees;
 		}
 
 		inline f32 get_degrees() const
@@ -53,7 +53,7 @@ namespace alc::math
 
 		static inline Angle from_radians(f32 rad)
 		{
-			return Angle(alc::math::to_degrees(rad));
+			return Angle(alc::math::radians * rad);
 		}
 
 		static inline Angle from_degrees(f32 deg)
@@ -105,9 +105,9 @@ namespace alc::math
 		// great.
 		assert(t <= 1.0f, "Parameter 't' is greater than 1.0f.");
 		assert(t >= 0.0f, "Parameter 't' is less than 0.0f.");
-		assert(isfinite(t) && isfinite(a) && isfinite(b), "Parameters given are not finite.");
-		assert(isnormal(t) && isnormal(a) && isnormal(b), "Parameters given are irregular.");
-		assert(!(isnan(t) || isnan(a) || isnan(b)), "Parameters given are NaN.");
+		assert(std::isfinite(t) && std::isfinite(a) && std::isfinite(b), "Parameters given are not finite.");
+		assert(std::isnormal(t) && std::isnormal(a) && std::isnormal(b), "Parameters given are irregular.");
+		assert(!(std::isnan(t) || std::isnan(a) || std::isnan(b)), "Parameters given are NaN.");
 
 		return (f32) (a + t * (b - a));
 	}
@@ -116,9 +116,9 @@ namespace alc::math
 	{
 		assert(t <= 1.0f, "Parameter 't' is greater than 1.0f.");
 		assert(t >= 0.0f, "Parameter 't' is less than 0.0f.");
-		assert(isfinite(t) && isfinite(a) && isfinite(b), "Parameters given are not finite.");
-		assert(isnormal(t) && isnormal(a) && isnormal(b), "Parameters given are irregular.");
-		assert(!(isnan(t) || isnan(a) || isnan(b)), "Parameters given are NaN.");
+		assert(std::isfinite(t) && std::isfinite(a) && std::isfinite(b), "Parameters given are not finite.");
+		assert(std::isnormal(t) && std::isnormal(a) && std::isnormal(b), "Parameters given are irregular.");
+		assert(!(std::isnan(t) || std::isnan(a) || std::isnan(b)), "Parameters given are NaN.");
 
 		return (f64) (a + t * (b - a));
 	}
