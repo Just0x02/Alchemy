@@ -1,7 +1,7 @@
 export TMP=C:\msys64\tmp
 
 CC = g++
-CFLAGS = -Wall -Wno-unused-variable -lpthread -Wno-narrowing -Wno-sign-compare
+CFLAGS = -Wall -Wno-unused-variable -Wno-narrowing -Wno-sign-compare
 
 INCLUDES = -I ./include
 
