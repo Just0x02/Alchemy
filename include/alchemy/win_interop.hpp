@@ -16,6 +16,9 @@ namespace alc
 {
 	static bool _win_interop_set = false;
 
+	#pragma GCC diagnostic push
+	#pragma GCC diagnostic ignored "-Wvolatile"
+
 	/// @brief Gets current cpu clock cycle
 	/// @return Current cpu clock cycle
 	const inline volatile u64 get_cpu_clock_cycle() noexcept
@@ -26,6 +29,9 @@ namespace alc
 			return 0;
 		#endif
 	}
+
+	#pragma GCC diagnostic pop
+
 
 	// allows for showing of colored characters in windows (or windows-based ex: wine) terminals
 	// does nothing for linux/unix/mac

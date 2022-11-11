@@ -2,6 +2,7 @@ export TMP=C:\msys64\tmp
 
 CC = g++
 CFLAGS = -Wall -Wno-unused-variable -Wno-narrowing -Wno-sign-compare
+CSTD = -std=c++20
 
 INCLUDES = -I ./include
 
@@ -17,7 +18,7 @@ C_SOURCES   := $(shell find $(SOURCEDIR) -name '*.c')
 BUILD_DIST_PREREQ := clean build
  
 build:
-	$(CC) $(CPP_MAIN) $(CPP_SOURCES) $(C_SOURCES) $(INCLUDES) $(CFLAGS) -o $(OUTFILE)
+	$(CC) $(CPP_MAIN) $(CPP_SOURCES) $(C_SOURCES) $(INCLUDES) $(CSTD) $(CFLAGS) -o $(OUTFILE)
 
 clean:
 	rm -f $(OUTFILE)

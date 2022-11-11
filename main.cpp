@@ -6,6 +6,7 @@
 #include "tests/test.hpp"
 #include "tests/data_span_test.cpp"
 #include "tests/span_objects_test.cpp"
+#include "tests/file_read_test.cpp"
 
 int main(void)
 {
@@ -14,6 +15,7 @@ int main(void)
 
 	REGISTER_TEST(DataSpanTest);
 	REGISTER_TEST(SpanObjectTest);
+	REGISTER_TEST(FileReadTest);
 
 	RUN_TESTS();
 }

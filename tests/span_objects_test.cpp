@@ -9,7 +9,7 @@
 class SpanObjectTest : public Test
 {
 public:
-	SpanObjectTest() : Test("Data Span Test", "Testing the limits/edgecases of data span.", __FILE__) {};
+	SpanObjectTest() : Test("Data Span Object Test", "Testing the limits/edgecases of data span when using heap allocated objects.", __FILE__) {};
 
 
 	void RunTest() override
