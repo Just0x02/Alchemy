@@ -2,6 +2,7 @@
 #define __COLOR_H__
 
 #include "types.hpp"
+#include "random.hpp"
 #include "mathutils.hpp"
 
 #include <sstream>
@@ -55,7 +56,7 @@ namespace alc
             this->b = (rgb_hex & Masks::BLUE);
         }
 
-        string compile_modifiers()
+        string compile_modifiers() const
         {
             std::stringstream ss;
 
@@ -71,14 +72,14 @@ namespace alc
             return ss.str();
         }
 
-        string as_ansii_fg()
+        string as_ansii_fg() const
         {
             std::stringstream ss;
             ss << ESCAPE_CODE << CODE_DELIM << "38;2;" << +this->r << ";" << +this->g << ";" << +this->b << "m";
             return this->compile_modifiers() + ss.str(); 
         }
 
-        string as_ansii_bg()
+        string as_ansii_bg() const
         {
             std::stringstream ss;
             ss << ESCAPE_CODE << CODE_DELIM << "48;2;" << +this->r << ";" << +this->g << ";" << +this->b << "m";
@@ -168,6 +169,17 @@ namespace alc
 
             return lerped;
         }
+
+		static Color lighten(Color color, f32 amount)
+		{
+			return Color::lerp(color, Color(Color::Masks::WHITE), amount);
+		}
+
+		static Color random()
+		{
+			const u32 rand_max = (UINT32_MAX ^ Masks::ALPHA); // makes sure to not include alpha
+			return Color(random::randint(0, rand_max) | Masks::ALPHA); // alpha added later
+		}
 
         static string reset()
         {
