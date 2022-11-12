@@ -1,8 +1,6 @@
 #ifndef __RANDOM_H__
 #define __RANDOM_H__
 
-#define __ALC__INLINE_ASM
-
 #include "types.hpp"
 #include "win_interop.hpp"
 
@@ -16,8 +14,7 @@ namespace alc::random
 	void seed() 
 	{
 		// gets current cpu clock cycle with some inline assembly in order to make the default random seed more... well... random.
-		// undefine '__ALC__INLINE_ASM' to disable this.
-		// it's like playing with fire :)
+		// define '__ALC__NO_INLINE_ASM' to disable this.
 		const volatile u64 cpu_tick_cycle = alc::get_cpu_clock_cycle();
 		std::srand(std::time(0) + clock() + cpu_tick_cycle);
 	}

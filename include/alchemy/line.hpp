@@ -61,9 +61,15 @@ namespace alc
 		}
 	};
 
-	typedef Line<i64> iLine;
-	typedef Line<u64> uLine;
-	typedef Line<f64> fLine;
+	#ifndef __ALC__USE_32BIT
+		typedef Line<i64> iLine;
+		typedef Line<u64> uLine;
+		typedef Line<f64> fLine;
+	#else
+		typedef Line<i32> iLine;
+		typedef Line<u32> uLine;
+		typedef Line<f32> fLine;
+	#endif
 };
 
 #endif // __LINE_H__

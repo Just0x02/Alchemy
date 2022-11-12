@@ -23,7 +23,7 @@ namespace alc
 	/// @return Current cpu clock cycle
 	const inline volatile u64 get_cpu_clock_cycle() noexcept
 	{
-		#ifdef __ALC__INLINE_ASM
+		#ifndef __ALC__NO_INLINE_ASM
 			return __rdtsc();
 		#else
 			return 0;

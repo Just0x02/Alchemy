@@ -123,9 +123,15 @@ namespace alc
 		}
 	};
 
-	typedef Point<i64> iPoint;
-	typedef Point<u64> uPoint;
-	typedef Point<f64> fPoint;
+	#ifndef __ALC__USE_32BIT
+		typedef Point<i64> iPoint;
+		typedef Point<u64> uPoint;
+		typedef Point<f64> fPoint;
+	#else
+		typedef Point<i32> iPoint;
+		typedef Point<u32> uPoint;
+		typedef Point<f32> fPoint;
+	#endif
 };
 
 
