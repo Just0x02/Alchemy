@@ -35,7 +35,7 @@ namespace alc
 			this->fptr = NULL;
 		}
 
-		const usize size_of()
+		inline const usize size_of()
 		{
 			usize size;
 

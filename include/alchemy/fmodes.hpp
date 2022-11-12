@@ -3,7 +3,7 @@
 
 namespace alc
 {
-	// THESE AREN'T DEFINED ANYWHERE IN THE STL WTF
+	// THESE AREN'T DEFINED ANYWHERE IN THE STL
 	namespace fmodes
 	{
 		static const char *read = "r";

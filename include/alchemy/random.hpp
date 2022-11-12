@@ -10,7 +10,6 @@
 #include <ctime>
 #include <cmath>
 
-
 namespace alc::random
 {
 	/// @brief Seeds random with a very very very very technically pseudorandom number
