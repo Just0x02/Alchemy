@@ -14,7 +14,7 @@ namespace alc
 			{ 0,  0,  0},
 		};
 
-		i64 mult_index(const Matrix3 &other, i32 x, i32 y)
+		inline i64 mult_index(const Matrix3 &other, i32 x, i32 y)
 		{
 			return (this->matrix[0][y] * other.matrix[x][0]) + (this->matrix[1][y] * other.matrix[x][1]) + (this->matrix[2][y] * other.matrix[x][2]); 
 		}

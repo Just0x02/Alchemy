@@ -18,7 +18,7 @@ namespace alc
 		Point(T x, T y) : x(x), y(y) {};
 		Point() : x(0), y(0) {};
 
-		inline f64 distance_to(Point<T> other)
+		inline f64 distance_to(Point<T> other) const
 		{
 			return math::distance(this->x, other.x, this->y, other.y);
 		}
@@ -45,7 +45,7 @@ namespace alc
 			return Point<T>(this->x, this->y);
 		}
 
-		inline Point<T> operator +(const Point<T> &other)
+		inline Point<T> operator+(const Point<T> &other)
 		{
 			Point<T> res;
 
@@ -55,7 +55,7 @@ namespace alc
 			return res;
 		}
 
-		inline Point<T>& operator +=(const Point<T> &other)
+		inline Point<T>& operator+=(const Point<T> &other)
 		{
 			this->x += other.x;
 			this->y += other.y;
@@ -119,7 +119,7 @@ namespace alc
 		template <typename _T, typename _A, typename _B>
 		static Point<_T> midpoint(Point<_A> a, Point<_B> b)
 		{
-			return Point::lerp(a, b, 0.5f);
+			return Point::lerp<_T, _A, _B>(a, b, 0.5f);
 		}
 	};
 

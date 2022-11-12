@@ -25,7 +25,7 @@
 namespace alc::math
 {
 	static const f32 radians = 180.0f / M_PI;
-	static const f32 degrees = M_PI * 180.f;
+	static const f32 degrees = M_PI * 180.0f;
 
 	// allows for easy storage of angles and for them to be converted in any situation, defaults to degrees when casted though...
 	struct Angle
@@ -77,12 +77,20 @@ namespace alc::math
 		}
 	};
 
-	inline f32 to_radians(f32 deg)
+	template <typename _X, typename _MIN, typename _MAX>
+	inline _X clamp(_X x, _MIN min, _MAX max)
+	{
+		if      (x < min) x = min;
+		else if (x > max) x = max;
+		return x;
+	}
+
+	inline f32 to_radians(f32 deg) noexcept
 	{
 		return deg * alc::math::radians;
 	}
 
-	inline f32 to_degrees(f32 rad)
+	inline f32 to_degrees(f32 rad) noexcept
 	{
 		return rad * alc::math::degrees;
 	}
