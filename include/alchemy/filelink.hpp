@@ -98,6 +98,22 @@ namespace alc
 			this->_close_file();
 		}
 
+		void write_bytes(i8 *bytes, usize bytes_length, bool create_file = false)
+		{
+			const char *mode = fmodes::generate_mode({
+				.write  = true,
+				.create = create_file
+			});
+
+			this->_open_file(mode);
+			this->_assert_file_opened();
+
+			for (usize i = 0; i < bytes_length; i++)
+				putc(*(bytes + i), this->fptr);
+
+			this->_close_file();
+		}
+
 		void append(string data, bool create_file = false) 
 		{
 			this->append(data.c_str(), create_file);

@@ -31,5 +31,8 @@ public:
 		string str = link.read();
 
 		assert(strcmp(written_str, str.c_str()) == 0, "Written and read strings are not equal; read: '" + str + "'.");
+
+		i8 test_bytes[] = { 0x65, 0x65 };
+		link.write_bytes(test_bytes, 2, true);
 	}
 };
