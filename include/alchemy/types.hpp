@@ -18,7 +18,7 @@ typedef size_t usize;
 typedef float f32;
 typedef double f64;
 
-typedef u8 byte_t;
+typedef i8 byte_t;
 
 #ifdef __cplusplus
 	#include <iostream>
