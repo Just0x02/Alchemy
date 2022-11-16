@@ -2,6 +2,7 @@
 
 #include <alchemy/win_interop.hpp>
 #include <alchemy/random.hpp>
+#include <alchemy/cstd/alcio.h>
 
 #include "tests/test.hpp"
 #include "tests/data_span_test.cpp"
@@ -13,9 +14,14 @@ int main(void)
 	alc::_allow_win_interop();
 	alc::random::seed();
 
-	REGISTER_TEST(DataSpanTest);
-	REGISTER_TEST(SpanObjectTest);
-	REGISTER_TEST(FileReadTest);
+	u64 buffer_size;
+	byte_t *byte_buffer = alc::read_file_bytes("./tests/test_file.txt", &buffer_size);
 
-	RUN_TESTS();
+	printf("READ %llu BYTES: %s", buffer_size, byte_buffer);
+
+	// REGISTER_TEST(DataSpanTest);
+	// REGISTER_TEST(SpanObjectTest);
+	// REGISTER_TEST(FileReadTest);
+
+	// RUN_TESTS();
 }
